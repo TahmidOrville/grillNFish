@@ -1,8 +1,8 @@
 .formArea{
     background-color: rgba(24, 24, 24, 0.74);
     width: 30%;
-    height: 520px;
-    margin: 4% 0 0 35%;
+    height: 650px;
+    margin: 2% 0 0 35%;
     padding: 2%;
     color: white; 
 }
@@ -22,7 +22,7 @@
     border-right: none!important;
     color: rgba(255, 255, 255, 0.822)!important;
 }
-#submitBtn{
+.submitBtn{
     color: white;
     background-color: rgb(62, 120, 143);
     border: none;
@@ -32,13 +32,21 @@
     margin-top: 5%;
     border-radius: 10px;
 }
-#submitBtn:active{
+.submitBtn:active{
     background-color: rgb(65, 182, 182);
 }
+#google{
+    height: 40px;
+}
+#passwordMsg{
+    font-size: small;
+    color: rgb(199, 192, 192);
+    margin-top: -3%;
+}
+
 @media(max-width:800px){
     .formArea{
         width: 90%;
-        height: 500px;
         margin: 13% 0 0 5%;
         /* padding: 2%; */
         
@@ -47,7 +55,7 @@
         height: 100px;
         margin-top: -60px;
     }
-    #submitBtn{
+    .submitBtn{
         cursor: none;
     }
 }

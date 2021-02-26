@@ -8,6 +8,7 @@ import firebaseConfig from '../firebase.config';
 import { useContext } from 'react';
 import { UserContext } from '../../App';
 import { useHistory, useLocation } from 'react-router-dom';
+import google from '../../images/google-removebg-preview.png'
 if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
  }
@@ -21,8 +22,7 @@ const Login = () => {
     let { from } = location.state || { from: { pathname: "/" } };
 
     const [newAccount,setNewAccount]=useState(true)
-    const [matched,setMatched]=useState(true)
-
+  
     const [user,setUser]=useState({           //user state containing user info
 
         name:'',
@@ -30,15 +30,14 @@ const Login = () => {
         password:'',
         success:false,
     })
-  
+   
 const handleChange=(e)=>{                  //getting user input and validate. Then setting to the state.
     
     let regexValid=false;
-    
+    let isFormValid=true;
     if (e.target.name==="email"){
-         const isEmailValid=/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(e.target.value);
-
-        isEmailValid===false && setMatched(false)
+         isFormValid=/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(e.target.value);
+        // console.log(isFormValid);
     }
 
     // if (e.target.name==="password") {
@@ -53,15 +52,17 @@ const handleChange=(e)=>{                  //getting user input and validate. Th
 
         if (againPassword===user.password && regexValid===true) {
           
-            setMatched(true)
+            isFormValid=true
         }
         else{
-            setMatched(false)
+      
             alert("Password didn't matched or has no number or special character or invalid email")
+            isFormValid=false
         }
     }
-//  console.log(matched);
-    if(matched===true){
+    // console.log(isFormValid);
+
+    if(isFormValid===true){
         const newUser={...user};
         newUser[e.target.name]=e.target.value;
         setUser(newUser)
@@ -130,9 +131,30 @@ const handleChange=(e)=>{                  //getting user input and validate. Th
     });
  }
 
+ const provider = new firebase.auth.GoogleAuthProvider();  //google sign in
+
+ const handleGoogleSignIn=()=>{
+    firebase.auth().signInWithPopup(provider)
+    .then((res) => {
+      let user = res.user;
+      console.log(user.email,user.displayName);
+      setLoggedInUser({
+          email:user.email,
+          name:user.displayName
+      })
+      history.replace(from);
+    })
+    .catch((error) => {
+      let errorMessage = error.message;
+      // The email of the user's account used.
+      let email = error.email;
+    });
+ }
+
+
     return (
-        <div>
-                <Form className="formArea">
+        <div className="formArea">
+                <Form >
                     <img src={logo} alt="logo" id="authLogo" />
                 <Form.Group controlId="formBasicCheckbox">
                     <Form.Check type="checkbox" label="Already have an account?" onClick={()=>setNewAccount(!newAccount)}/>
@@ -152,8 +174,9 @@ const handleChange=(e)=>{                  //getting user input and validate. Th
 
                     <Form.Group controlId="formBasicPassword">
                     <Form.Label className="title">Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" name="password"  onBlur={handleChange} className="inputField" />
+                    <Form.Control type="password" placeholder="Password" name="password"  onChange={handleChange} className="inputField" />
                    </Form.Group>
+                   <p id="passwordMsg">Password must contain minimum a number & a special character</p>
                 
                 { newAccount &&
                     <Form.Group controlId="formConfirmPassword">
@@ -161,10 +184,11 @@ const handleChange=(e)=>{                  //getting user input and validate. Th
                     <Form.Control type="password" placeholder="Confirm Password" name="confirmPassword" onBlur={handleChange} className="inputField"/>
                 </Form.Group>
                 }
-                <input type="submit" value={newAccount? "Create Account" : "Sign in"} onClick={handleSubmit} id="submitBtn"></input>
+                <input type="submit" value={newAccount? "Create Account" : "Sign in"} onClick={handleSubmit} className="submitBtn"></input>
                 <p style={{color:"red"}}>{user.error}</p>
                 {user.success && <p style={{color:'rgb(145, 235, 11)'}}>{newAccount? "Account created successfully" : "Logged in successfully"}</p> }
             </Form>
+            <button className="submitBtn" onClick={handleGoogleSignIn}><img src={google} alt="" id="google"/> Sign In with google</button>
         </div>
     );
 };
