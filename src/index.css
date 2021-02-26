@@ -5,6 +5,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* background: url("./images/ocean.jpg"); */
+  background: url('./images/national-fish-and-chip-day_banner.png');
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 code {

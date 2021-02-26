@@ -1,0 +1,55 @@
+
+.navBar{
+    background-color: transparent;
+    z-index: 9; 
+}
+.navItem{
+    color:white;
+    font-family: 'Potta One', cursive;
+    font-size: 2rem;
+
+}
+.navItem:hover{
+    text-decoration: none;
+    color: rgb(27, 169, 204);
+}
+.logoName{
+    color: white;
+    /* font-family: 'Pacifico', cursive; */
+    font-family: 'Potta One', cursive;
+    font-size: 2rem;
+    font-weight: bold;
+}
+.logoName:hover{
+    text-decoration: none;
+    color: rgb(52, 138, 160);
+}
+#fishNumber{
+    background-color: rgb(90, 210, 226);
+    font-size: 1.2rem;
+    padding: 2px 10px;
+    border-radius: 50%;
+    margin-top: -5px;
+    position: absolute;
+}
+#userName{
+    font-size: x-large;
+    color: rgb(27, 240, 255);
+}
+@media (max-width: 600px) {
+    .navItem{
+        font-size: large;
+    }
+    .logoName{
+        font-size:large;
+        margin-left: -4%;
+    }
+    #fishNumber{
+       font-size: small;
+        padding: 2px 8px;
+    }
+    #userName{
+        font-size: .9rem;
+    }
+ 
+   }

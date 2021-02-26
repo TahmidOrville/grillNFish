@@ -1,0 +1,45 @@
+.cartContainer{
+    display: flex;
+    flex-direction: row-reverse;
+}
+.billPart{
+    width: 25%;
+    background-color: rgba(54, 54, 54, 0.658);
+    margin-left: auto;
+    margin-right: 5%;
+    height: 430px;
+    border-radius: 10px;
+}
+.cartProductArea{
+    width: 60%;
+    margin-left: 5%;
+
+}
+.billPart img{
+    height: 150px;
+    margin-top: 5%;
+}
+.checkoutBtn{
+    width: 90%;
+    margin-bottom: 1%;
+}
+
+@media(max-width:600px){
+    .cartContainer{
+        display: flex;
+        flex-direction:column;
+    }
+    .billPart{
+        width: 100%;
+        height: 210px;
+        margin-bottom: 4%;
+    }
+    .cartProductArea{
+        width: 100%;
+        margin-left: 0;
+    
+    }
+    .billPart img{
+       display: none;
+    }
+}

@@ -1,0 +1,31 @@
+.billArea{
+    color:white;
+    margin-top: 5%;
+}
+.fields{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 3%;
+    height: 80px;
+    border: 2px solid rgba(197, 195, 195, 0.486);
+    border-radius: 10px;
+    
+}
+.digit{
+    margin-right: 5%;
+}
+.fieldName{
+    margin-left: 5%;
+}
+@media(max-width:600px){
+    .billArea{
+        margin-top:0;
+        font-weight: bold;
+    }
+    .fields{
+        margin-bottom: 1%;
+        height: 50px;
+        
+    }
+}

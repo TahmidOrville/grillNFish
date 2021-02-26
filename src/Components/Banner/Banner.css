@@ -1,0 +1,28 @@
+.banner{
+    height: 700px;
+}
+.car{
+    position: absolute!important;
+    top: 0;
+}
+.bannerCaption{
+    top: 50%;
+    transform: translateY(-30%);
+    font-family: 'Knewave', cursive;
+    }
+    .bannerCaption h1{
+        font-size: 5rem;
+    }
+    @media (max-width: 600px) {
+       .banner{
+           height: 60vh;
+       }
+       .bannerCaption{
+        top: 50%;
+        transform: translateY(-30%);
+        }
+        .bannerCaption h1{
+            font-size: 2rem;
+        }
+     
+       }

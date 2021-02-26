@@ -1,0 +1,86 @@
+
+.shipArea{
+    display: flex;
+    margin-top: 2%;
+}
+
+.shipForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+    background-color: rgba(206, 206, 206, 0.664);
+    margin-left: 10%;
+    padding: 5%;
+}
+.shipField{
+    margin: 2%!important;
+    width: 97%;
+}
+.orderBtnLink{
+    width: 60%;
+}
+#orderBtn{
+    width: 100%;
+    margin-top: 2%;
+}
+.checkArea{
+    background-color:rgba(206, 206, 206, 0.664) ;
+    margin-left: 10%;
+    width: 30%;
+    height: 220px;
+    padding: 2% 1%;
+    font-size: 1.5rem;
+    color: rgba(83, 83, 83, 0.986);
+    font-weight: bold;
+}
+.shipTotal{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(129, 126, 126, 0.507);
+    margin-bottom: 2%;
+    border-radius: 10px;
+}
+.shipProperty{
+ margin-left: 5%;
+}
+.shipCost{
+    margin-right: 5%;
+}
+#shipLogo{
+    height: 200px;
+    margin-top: 5%;
+}
+
+@media(max-width:600px){
+    .shipArea{
+        display: flex;
+        flex-direction: column-reverse;
+        margin-top: 1%;
+    }
+    .shipForm{
+        width: 90%;
+        margin-left: 5%;
+        margin-top: 2%;
+        padding: 5%;
+    }
+    .checkArea{
+        margin-left: 5%;
+        width: 60%;
+        height: 110px;
+        font-size: 1rem;
+        border-radius: 10px;
+        background-color: transparent;
+        color: blanchedalmond;
+    }
+    .shipTotal{
+        margin-bottom: 1%;
+        height: 30px;
+    }
+    #shipLogo{
+       display: none;
+    }
+    #orderBtn{
+        cursor: none;
+    }
+}

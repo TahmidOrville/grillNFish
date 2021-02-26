@@ -1,0 +1,57 @@
+.moreArea{
+    background: url("../../images/more.jpg");
+    background-size: cover;
+    height: 500px;
+    margin-top: 5%;
+    margin-bottom: 1%;
+    display: flex;
+    align-items: center;
+    font-family: 'Knewave', cursive;
+    color: white;
+}
+.moreCarousel{
+    width: 25%; 
+}
+.moreCarousel img{
+    height: 470px;
+    
+
+}
+#promotion{
+    font-size: 4rem;
+    transform: rotatez(-90deg);
+    margin-left: 10%;
+    height: fit-content;
+}
+.about{
+    /* padding: 5%; */
+    width: 30%;
+    margin-top: -5%;
+    margin-left: 4%;
+    letter-spacing: .1rem;
+    word-spacing: .1rem;
+}
+@media (max-width: 600px) {
+    .moreArea{
+        height: fit-content;
+        margin-top: 5%;
+        margin-bottom: 1%;
+        display: block;
+    }
+    .moreCarousel{
+        width: 90%;
+        margin-left: 5%; 
+        padding-bottom: 5%;
+    }
+    .moreCarousel img{
+        height: 440px;
+        
+    
+    }
+    #promotion{
+        font-size: 2rem;
+        transform: none;
+        margin-left: 2%;
+        height: fit-content;
+    }
+    }

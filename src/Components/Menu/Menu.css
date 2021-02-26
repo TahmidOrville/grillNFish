@@ -1,0 +1,78 @@
+.food-card{
+  margin-left: 10%;
+    margin-right: 1%;
+    margin-bottom: 5%;
+    color: cornsilk;
+    background-color:rgba(59, 58, 58, 0.76);
+    width: 300px;
+    height: 400px;
+    box-shadow: 0 4px 8px 0 rgba(141, 156, 165, 0.884), 0 6px 20px 0 rgb(67, 90, 97);
+    border-radius: 5px;
+    font-size: larger;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    perspective: 1000px;
+}
+/* .food-card:hover{
+    transform: scale(1.1);
+} */
+.food-card-inner {
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+  }
+  .food-card:hover .food-card-inner {
+    transform: rotateY(180deg);
+  }
+  .food-card-front{
+    margin-top: 10%;
+  }
+  .food-card-back {
+    transform: rotateY(180deg);
+    margin-top: 40%;
+  }
+  .food-card-front, .food-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  .backBtn{
+    color:white;
+
+  }
+  .backBtn:hover{
+    text-decoration: none;
+    color: white;
+  }
+  .frontLink{
+    color:white
+  }
+  .frontLink:active{
+    text-decoration: none;
+    
+  }
+  .frontLink:hover{
+    color: white;
+  }
+  @media (max-width: 600px) {
+    .food-card{
+        margin-left: 5%;
+        margin-right: 5%;
+        background-color:rgba(59, 58, 58, 0.466);
+        width: 100%;
+        height: 350px;
+        font-size: large;
+    }
+    .food-card-front{
+      margin-top: 5%;
+    }
+    .food-card-front img{
+      height: 200px!important;
+    }
+    #clickMore{
+      font-size: small;
+      margin-left: 70%;
+      margin-top: 10%;
+    }
+ 
+    }

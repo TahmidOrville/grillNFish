@@ -1,0 +1,76 @@
+.detailsArea{
+    display: flex;
+    background-color: rgba(46, 46, 46, 0.459);
+    margin-top: -5%;
+    height: 100vh;
+}
+.text{
+    color:white;
+    width: 40%;
+    margin-left: 10%;
+    margin-top: 15%;
+    letter-spacing: .1rem;
+    font-family: 'Knewave', cursive;
+}
+.detailsImg{
+    margin-top: 10%;
+    height: 500px;
+}
+.number{
+    padding: 1% 5% 1% 5%;
+    font-size: 2rem;
+}
+.signBtn{
+    outline: none;
+    border: none;
+    background-color:  rgb(97, 201, 201);
+    padding: 5px 15px;
+    border-radius: 50%;
+    color: white;
+    font-size: 2rem;
+}
+.signBtn:active{
+    background-color: rgb(68, 128, 156);
+}
+.addCart{
+    outline: none;
+    border: none;
+    padding: 5px 10px;
+    background-color: rgb(76, 193, 223);
+    border-radius: 10px;
+    margin-top: 5%;
+    color: whitesmoke;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.addCart:active{
+    background-color: rgb(87, 151, 151);
+}
+@media (max-width: 600px) {
+   .detailsImg{
+       height: 180px;
+       margin-top: 45%;
+       margin-left: 10px;
+   }
+   .detailsArea{
+    padding-bottom: 10%;
+    margin-top: -25%;
+    height: 700px;
+}
+.text{
+    margin-top: 30%;
+    margin-left: 0;
+    font-size: xx-small;
+    width: 55%;
+}
+.signBtn{
+    padding: 8px 15px;
+    font-size: 1rem;
+    cursor: none;
+
+}
+.addCart{
+    margin-top: 5%;
+    font-size: .8rem;
+   cursor: none;
+}
+  }

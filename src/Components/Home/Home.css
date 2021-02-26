@@ -1,0 +1,39 @@
+.cardArea{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 5%;
+}
+.tabs{
+    margin-top: 42%;
+    margin-left: 35%;
+    padding-top: 2%;
+    width: fit-content;
+    background-color: transparent!important;
+}
+.homeArea{
+    background: url("../../images/b.jpg");
+    background-size: cover;
+    
+}
+.tabText{
+    color: rgb(255, 255, 255)!important;
+    font-size: 1.5rem!important;
+    font-weight: bold!important;
+    font-family: 'Knewave', cursive!important;
+    letter-spacing: .1rem!important;
+}
+@media (max-width: 600px) {
+    .tabs{
+        margin-left: 10%;
+        margin-top: 70%;
+        background-color: rgba(63, 63, 63, 0.692)!important;
+    }
+    .tabText{
+        font-size: large!important;
+    }
+    .homeArea{
+        background: url("../../images/toa-heftiba-TwtUYtDOv6w-unsplash.jpg");
+        background-size: cover;
+    }
+    }
+    
