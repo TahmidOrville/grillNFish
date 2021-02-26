@@ -4,7 +4,7 @@ import './Login.css';
 import logo from '../../grillNFishLogo.png'
 import firebase from "firebase/app";
 import "firebase/auth";
-import firebaseConfig from '../firebase.config';
+import firebaseConfig from '../firebase.config.js';
 import { useContext } from 'react';
 import { UserContext } from '../../App';
 import { useHistory, useLocation } from 'react-router-dom';
