@@ -7,7 +7,7 @@ import logo from '../../grillNFishLogo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faConciergeBell } from '@fortawesome/free-solid-svg-icons';
 import { useContext } from 'react';
-import { UserContext } from '../../App';
+import { AddressContext, UserContext } from '../../App';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { clearCart} from '../../Redux/Actions/cartActions';
@@ -15,6 +15,7 @@ import { clearCart} from '../../Redux/Actions/cartActions';
 const Shipment = (props) => {
 
 const [loggedInUser]=useContext(UserContext);
+const [info,setInfo]=useContext(AddressContext);
 
     const {cart,clearCart}=props;
     const priceArray=cart.map(pd=>pd.total);
@@ -30,10 +31,10 @@ const [loggedInUser]=useContext(UserContext);
         return num.toFixed(2)
     }
     
-    const [info,setInfo]=useState({
-        phone:'',
-        address:''
-    })
+    // const [info,setInfo]=useState({
+    //     phone:'',
+    //     address:''
+    // })
     const handleBlur=(e)=>{
         const filledInfo={...info}
         filledInfo[e.target.name]=e.target.value

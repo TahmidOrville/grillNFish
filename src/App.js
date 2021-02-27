@@ -18,14 +18,18 @@ import { useState } from 'react';
 import Delivery from './Components/Delivery/Delivery';
 
 export const UserContext=createContext();
-
+export const AddressContext=createContext()
 function App() {
 
   const [loggedInUser,setLoggedInUser]=useState({});
-
+  const [info,setInfo]=useState({
+    phone:'',
+    address:''
+})
 
   return (
     <UserContext.Provider value={[loggedInUser,setLoggedInUser]}>
+      <AddressContext.Provider value={[info,setInfo]}>
       <div className="App">
           <Router>
           <Header></Header>
@@ -51,6 +55,7 @@ function App() {
           </Switch>
           </Router>
           </div>
+          </AddressContext.Provider>
     </UserContext.Provider>
   );
 }

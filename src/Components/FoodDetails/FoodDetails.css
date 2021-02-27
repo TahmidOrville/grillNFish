@@ -45,6 +45,25 @@
 .addCart:active{
     background-color: rgb(87, 151, 151);
 }
+#floatingMsg{
+    background-color: rgb(135, 190, 53);
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-left: 60%;
+    text-align:end;
+    padding: 2px 4px 0 0;
+    width: 120px;
+    clip-path: polygon(36% 29%, 100% 30%, 100% 100%, 64% 100%, 25% 100%, 25% 35%, 0 0);
+    animation: msgStyle .5s;
+}
+#msg{
+    padding: 5px;
+    margin-top: 10%;
+}
+@keyframes msgStyle {
+    0%   {opacity:.5;}
+    50%  {opacity:1;}
+    100% {opacity:.5;}
+  }
 @media (max-width: 600px) {
    .detailsImg{
        height: 180px;
@@ -72,5 +91,11 @@
     margin-top: 5%;
     font-size: .8rem;
    cursor: none;
+}
+#floatingMsg{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    margin-left: 70%;
+    padding: 2px 4px 0 0;
+    width: 80px;
 }
   }
