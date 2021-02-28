@@ -1,8 +1,8 @@
 .formArea{
     background-color: rgba(24, 24, 24, 0.74);
     width: 30%;
-    height: 650px;
-    margin: 2% 0 0 35%;
+    height: 680px;
+    margin: 2% 0 2% 35%;
     padding: 2%;
     color: white; 
 }
@@ -40,7 +40,6 @@
 }
 #passwordMsg{
     font-size: small;
-    color: rgb(199, 192, 192);
     margin-top: -3%;
 }
 

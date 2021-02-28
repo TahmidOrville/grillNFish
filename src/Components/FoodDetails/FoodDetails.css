@@ -1,7 +1,7 @@
 .detailsArea{
     display: flex;
     background-color: rgba(46, 46, 46, 0.459);
-    margin-top: -5%;
+    margin-top: -7%;
     height: 100vh;
 }
 .text{
@@ -46,7 +46,7 @@
     background-color: rgb(87, 151, 151);
 }
 #floatingMsg{
-    background-color: rgb(135, 190, 53);
+    background-color: rgb(132, 206, 22);
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin-left: 60%;
     text-align:end;
@@ -60,23 +60,23 @@
     margin-top: 10%;
 }
 @keyframes msgStyle {
-    0%   {opacity:.5;}
-    50%  {opacity:1;}
+    0%   {opacity:1;}
+    50%  {opacity:.8;}
     100% {opacity:.5;}
   }
 @media (max-width: 600px) {
    .detailsImg{
        height: 180px;
        margin-top: 45%;
-       margin-left: 10px;
+       margin-left: 5px;
    }
    .detailsArea{
     padding-bottom: 10%;
-    margin-top: -25%;
+    margin-top: -33%;
     height: 700px;
 }
 .text{
-    margin-top: 30%;
+    margin-top: 40%;
     margin-left: 0;
     font-size: xx-small;
     width: 55%;

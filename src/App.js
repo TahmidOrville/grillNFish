@@ -16,23 +16,38 @@ import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 import { createContext } from 'react';
 import { useState } from 'react';
 import Delivery from './Components/Delivery/Delivery';
+import { useEffect } from 'react';
+import { useContext } from 'react';
+ 
 
 export const UserContext=createContext();
-export const AddressContext=createContext()
+export const RateContext=createContext();
+export const SelectedContext=createContext();
+
 function App() {
 
   const [loggedInUser,setLoggedInUser]=useState({});
-  const [info,setInfo]=useState({
-    phone:'',
-    address:''
-})
+  const [selectedCurrency,setSelectedCurrency]=useState("USD")
+  const [rate,setRate]=useState()
+  // console.log(selectedCurrency);
+ 
+  
+  useEffect(()=>{
+    fetch(`https://api.exchangerate.host/latest?base=USD&symbols=${selectedCurrency}`)
+    .then(res=>res.json())
+    .then(data=>{
+      const rate= (data.rates[selectedCurrency]);
+      setRate(rate)
+    })
+ },[selectedCurrency])
 
   return (
     <UserContext.Provider value={[loggedInUser,setLoggedInUser]}>
-      <AddressContext.Provider value={[info,setInfo]}>
+        <RateContext.Provider value={[rate,setRate]}>
+          <SelectedContext.Provider value={[selectedCurrency,setSelectedCurrency]}>
       <div className="App">
           <Router>
-          <Header></Header>
+          <Header setSelectedCurrency={setSelectedCurrency} selectedCurrency={selectedCurrency}></Header>
           <Switch>
             <Route exact path="/">
               <Home></Home>
@@ -55,9 +70,11 @@ function App() {
           </Switch>
           </Router>
           </div>
-          </AddressContext.Provider>
+          </SelectedContext.Provider>
+          </RateContext.Provider>
     </UserContext.Provider>
   );
 }
+
 
 export default App;

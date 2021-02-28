@@ -9,6 +9,8 @@ import { useContext } from 'react';
 import { UserContext } from '../../App';
 import { useHistory, useLocation } from 'react-router-dom';
 import google from '../../images/google-removebg-preview.png'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheckCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
  }
@@ -30,7 +32,12 @@ const Login = () => {
         password:'',
         success:false,
     })
-   
+const [numberRegex,setNumberRegex]=useState(false)
+const [charRegex,setCharRegex]=useState(false)
+const [lengthRegex,setLengthRegex]=useState(false)
+ console.log(numberRegex);  
+//  console.log(charRegex);
+//  console.log(lengthRegex);
 const handleChange=(e)=>{                  //getting user input and validate. Then setting to the state.
     
     let regexValid=false;
@@ -40,13 +47,19 @@ const handleChange=(e)=>{                  //getting user input and validate. Th
         // console.log(isFormValid);
     }
 
-    // if (e.target.name==="password") {
-    //   const isPasswordValid= /^(?=.*[0-9])(?=.*[!@#$%^&/*])[a-zA-Z0-9!@#$%^&/*]{6,16}$/.test(e.target.value);
-    //   isPasswordValid===false && setMatched(false)
+    if (e.target.name==="password") {
+        const hasNumber=/^(?=.*[0-9])/.test(e.target.value);
+        hasNumber ? setNumberRegex(true):setNumberRegex(false); 
+        
+        const hasChar=/^(?=.*[!@#$%^&/*?.])/.test(e.target.value);
+        hasChar ? setCharRegex(true):setCharRegex(false);
+
+        const validLength=/^[a-zA-Z0-9!@#$%^&/*?.]{6,16}$/.test(e.target.value);
+        validLength ? setLengthRegex(true):setLengthRegex(false);      
       
-    // }
+    }
     if (e.target.name==="confirmPassword") {
-        regexValid= /^(?=.*[0-9])(?=.*[!@#$%^&/*])[a-zA-Z0-9!@#$%^&/*]{6,16}$/.test(e.target.value);
+        regexValid= /^(?=.*[0-9])(?=.*[!@#$%^&/*?.])[a-zA-Z0-9!@#$%^&/*?.]{6,16}$/.test(e.target.value);
 
         const againPassword=e.target.value;
 
@@ -149,7 +162,8 @@ const handleChange=(e)=>{                  //getting user input and validate. Th
       // The email of the user's account used.
       let email = error.email;
     });
- }
+}
+
 
 
     return (
@@ -176,7 +190,9 @@ const handleChange=(e)=>{                  //getting user input and validate. Th
                     <Form.Label className="title">Password</Form.Label>
                     <Form.Control type="password" placeholder="Password" name="password"  onChange={handleChange} className="inputField" />
                    </Form.Group>
-                   <p id="passwordMsg">Password must contain minimum a number & a special character</p>
+                   {numberRegex?<p id="passwordMsg" style={{color:"chartreuse"}}><FontAwesomeIcon icon={faCheckCircle}/>Password must contain minimum a number</p>:<p id="passwordMsg" style={{color:"red"}}><FontAwesomeIcon icon={faTimesCircle}/>Password must contain minimum a number</p>}
+                   {charRegex?<p id="passwordMsg" style={{color:"chartreuse"}}><FontAwesomeIcon icon={faCheckCircle}/>Password must contain minimum a special character</p>:<p id="passwordMsg" style={{color:"red"}}><FontAwesomeIcon icon={faTimesCircle}/>Password must contain minimum a special character</p>}
+                   {lengthRegex?<p id="passwordMsg" style={{color:"chartreuse"}}><FontAwesomeIcon icon={faCheckCircle}/>Password length must be between 6 to 16 </p>:<p id="passwordMsg" style={{color:"red"}}><FontAwesomeIcon icon={faTimesCircle}/>Password length must be between 6 to 16 </p>}
                 
                 { newAccount &&
                     <Form.Group controlId="formConfirmPassword">

@@ -1,6 +1,8 @@
 import React from 'react';
+import { useContext } from 'react';
 import { useState } from 'react';
 import { Button } from 'react-bootstrap';
+import { RateContext, SelectedContext } from '../../App';
 import './CartProducts.css';
 const CartProducts = (props) => {
     const {product,addToCart,removeFromCart,controlQuantity}=props;
@@ -21,6 +23,9 @@ const CartProducts = (props) => {
          removeFromCart(foodId)
      }
     // console.log(quantity);
+    const [rate]=useContext(RateContext);
+    const [selectedCurrency]=useContext(SelectedContext)
+    const amount= (price*rate).toFixed(2);
     return (
         <div className="cartProduct">
             <div className="firstColumn">
@@ -28,7 +33,7 @@ const CartProducts = (props) => {
             </div>
             <div className="secondColumn">
                 <h5>{name}</h5>
-                <h3>${price}</h3>
+                <h3>{`${selectedCurrency} ${amount}`}</h3>
                 <Button variant="danger" className="mt-5 removeBtn" size="sm" onClick={()=>removeFromCart(foodId)}>Remove</Button>
             </div>
             <div className="thirdColumn">

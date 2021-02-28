@@ -17,15 +17,13 @@ const Delivery = () => {
 
     const [activeStep] = useState(1);
     const steps = getSteps();
-
-    const [info]=useContext(AddressContext);
-    console.log(info.address);
+    
     return (
         <>
         <div className="deliveryArea">
 
         <div className="mapArea">
-          <iframe width="100%" height="400" frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=400&amp;hl=en&amp;q=gulshan+(GrillNFish)&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+          <iframe width="100%" height="400" frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=400&amp;hl=en&amp;q=dhanmondi+(GrillNFish)&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
        
         </div>
 

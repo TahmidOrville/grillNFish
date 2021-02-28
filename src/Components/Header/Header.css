@@ -6,13 +6,24 @@
 .navItem{
     color:white;
     font-family: 'Potta One', cursive;
-    font-size: 2rem;
-
+    font-size: 1.6rem;
+    margin-right: 10%;
 }
 .navItem:hover{
     text-decoration: none;
     color: rgb(27, 169, 204);
 }
+
+.currency{
+    background-color: rgb(124, 117, 117);
+    color: blanchedalmond!important;
+    height: 30px;
+    font-size: small!important;
+    border-radius: 30px;
+    outline: none!important;  
+    width: 90px!important;
+}
+
 .logoName{
     color: white;
     /* font-family: 'Pacifico', cursive; */
@@ -39,6 +50,7 @@
 @media (max-width: 600px) {
     .navItem{
         font-size: large;
+        margin-right: 8px;
     }
     .logoName{
         font-size:large;
@@ -50,6 +62,6 @@
     }
     #userName{
         font-size: 1.1rem;
+        font-weight: bold;
     }
- 
    }

@@ -7,7 +7,7 @@ import logo from '../../grillNFishLogo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faConciergeBell } from '@fortawesome/free-solid-svg-icons';
 import { useContext } from 'react';
-import { AddressContext, UserContext } from '../../App';
+import {RateContext, SelectedContext, UserContext } from '../../App';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { clearCart} from '../../Redux/Actions/cartActions';
@@ -15,26 +15,30 @@ import { clearCart} from '../../Redux/Actions/cartActions';
 const Shipment = (props) => {
 
 const [loggedInUser]=useContext(UserContext);
-const [info,setInfo]=useContext(AddressContext);
+
 
     const {cart,clearCart}=props;
     const priceArray=cart.map(pd=>pd.total);
     const cost=priceArray.reduce((sum,num)=>sum+num,0);
+    const [rate]=useContext(RateContext);
+    const [selectedCurrency]=useContext(SelectedContext)
+    const amount= (cost*rate);
     let tax;
     if (cost>100) {
-        tax=cost*.1
-    } else{
         tax=cost*.05
+    } else{
+        tax=cost*.02
     }
 
     const format=(num)=>{
         return num.toFixed(2)
     }
     
-    // const [info,setInfo]=useState({
-    //     phone:'',
-    //     address:''
-    // })
+
+    const [info,setInfo]=useState({
+        phone:'',
+        address:''
+    })
     const handleBlur=(e)=>{
         const filledInfo={...info}
         filledInfo[e.target.name]=e.target.value
@@ -63,15 +67,15 @@ const [info,setInfo]=useContext(AddressContext);
        <div className="checkArea">
         <div className="shipTotal">
             <p className="shipProperty">FOOD COST</p>
-            <p className="shipCost">${format(cost+tax)}</p>
+            <p className="shipCost">{`${selectedCurrency} ${format(amount+tax)}`}</p>
             </div>
             <div className="shipTotal">
             <p className="shipProperty">DELIVERY FEE</p>
-            <p className="shipCost">$1.2</p>
+            <p className="shipCost">{`${selectedCurrency} ${format(rate*2)}`}</p>
             </div>
             <div className="shipTotal">
             <p className="shipProperty">BILL</p>
-            <p className="shipCost">${format(cost+tax+1.2)}</p>
+            <p className="shipCost">{`${selectedCurrency} ${format(amount+tax+(rate*2))}`}</p>
             </div>
           <img src={logo} alt="FishNGrill" id="shipLogo"/>
        </div>
